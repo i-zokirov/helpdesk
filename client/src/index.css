@@ -1,0 +1,18 @@
+body {
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.router-links {
+	text-decoration: none;
+	color: inherit;
+}
+
+.action-buttons {
+	width: 80px;
+}
