@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-
 import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import { styled } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
@@ -13,11 +11,15 @@ import BasicSelect from "../components/BasicSelect";
 import Autocomplete from "@mui/material/Autocomplete";
 import CircularProgress from "@mui/material/CircularProgress";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
+import TabContent from "../components/TabContent";
+import NotesSection from "./sections/NotesSection";
+import ResolutionDetailsSection from "./sections/ResolutionDetailsSection";
 function sleep(delay = 0) {
 	return new Promise((resolve) => {
 		setTimeout(resolve, delay);
 	});
 }
+
 const Input = styled("input")({
 	display: "none",
 });
@@ -93,7 +95,6 @@ const Incident = () => {
 	return (
 		<ThemeProvider theme={theme}>
 			<Container component='main'>
-				{/* <CssBaseline /> */}
 				<Box
 					sx={{
 						marginTop: 0,
@@ -353,7 +354,6 @@ const Incident = () => {
 									name='description'
 									label='Description'
 									id='description'
-									autoComplete='new-description'
 									minRows={8}
 									maxRows={8}
 									multiline
@@ -362,10 +362,18 @@ const Incident = () => {
 								/>
 							</Grid>
 						</Grid>
-						{/* <Button type='submit' variant='contained' sx={{ mt: 3, mb: 2 }}>
-							Conitnue
-						</Button> */}
 					</Box>
+				</Box>
+
+				<Box
+					sx={{
+						marginTop: 5,
+					}}
+				>
+					<TabContent
+						tabs={["Notes", "Resolution details"]}
+						tabContents={[<NotesSection />, <ResolutionDetailsSection />]}
+					/>
 				</Box>
 			</Container>
 		</ThemeProvider>
